@@ -1,0 +1,1273 @@
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f2f2f2;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.logo-imagem {
+  width: 150px;
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-item.ativo {
+  background-color: #49c5f6;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    position: static;
+    box-shadow: none;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .logo-imagem {
+    width: 120px;
+    margin-bottom: 0;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .menu-item {
+    font-size: 14px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.main {
+  flex: 1;
+  padding: 60px 280px;
+  background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Seção superior com título e botão */
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.top-section h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+}
+
+.top-section p {
+  margin: 6px 0 12px;
+  color: #777;
+}
+
+/* Campo de busca */
+.search {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 280px;
+  font-size: 14px;
+}
+
+/* Card "Criar paciente" */
+.criar-box {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 220px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.criar-box:hover {
+  background-color: #f0faff;
+}
+
+.criar-box strong {
+  font-size: 15px;
+  color: #333;
+}
+
+.criar-box .subtitle {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0 10px;
+}
+
+/* Círculo + */
+.dashed-box {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #5bc0eb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 22px;
+  color: #5bc0eb;
+}
+
+/* Área de estado vazio */
+.empty-container {
+  text-align: center;
+  color: #888;
+}
+
+.empty-container img {
+  max-width: 250px;
+  margin: auto;
+  display: block;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .menu button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .top-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search,
+  .criar-box {
+    width: 80%;
+  }
+
+  .criar-box {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+
+
+/* Paciente Form Model*/
+/* Modal principal */
+.modal-form-container {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  width: 90%;
+  max-width: 500px;
+}
+
+.status-consulta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.icone-consulta {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
+}
+
+.texto-consulta {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.texto-consulta.verde {
+  color: #00cc88;
+  font-weight: 600;
+}
+
+.data-consulta {
+  color: #00cc88;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+
+/* Título */
+.modal-form-container h2 {
+  background-color: #a5d8ff;
+  color: #004080;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.modal-form-container p {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+/* Layout de duas colunas */
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Campos de input */
+.modal-form-container label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.modal-form-container input {
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Campo único (linha cheia) */
+.col-span-2 {
+  grid-column: span 2;
+}
+
+/* Botões */
+.modal-botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.modal-botoes button {
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-botoes .botao-cancelar {
+  background-color: #f0f0f0;
+  color: #444;
+}
+
+.modal-botoes .botao-cancelar:hover {
+  background-color: #e0e0e0;
+}
+
+.modal-botoes .botao-criar {
+  background-color: #29c5f6;
+  color: white;
+  font-weight: bold;
+}
+
+.modal-botoes .botao-criar:hover {
+  background-color: #19b2e6;
+}
+
+/* Responsividade */
+@media (max-width: 300px) {
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-span-2 {
+    grid-column: span 1;
+  }
+
+  .modal-botoes {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* PacienteDetalheModal */
+.paciente-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.status-consulta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.icone-consulta {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
+}
+
+.texto-consulta {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+.texto-consulta.verde {
+  color: #00cc88;
+  font-weight: 600;
+}
+
+.data-consulta {
+  color: #00cc88;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* Inputs */
+.paciente-form input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Botões */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.modal-buttons .cancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.modal-buttons .create {
+  background-color: #45a0d5;
+  color: #fff;
+}
+
+.modal-buttons .create:hover {
+  background-color: #3c91c4;
+}
+
+.modal-buttons .cancel:hover {
+  background-color: #d6d6d6;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.paciente-nome {
+  background-color: #f59bc4;
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 24px;
+}
+
+.paciente-detalhes {
+  text-align: left;
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.paciente-detalhes p {
+  margin-bottom: 12px;
+}
+
+.paciente-status {
+  text-align: center;
+}
+
+.status-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.status-text {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.status-text.marcado {
+  color: #3eb98f;
+}
+
+.status-text.vazio {
+  color: #bbb;
+}
+
+/*continua*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.detalhe-modal {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.detalhe-modal h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1c1c1c;
+}
+
+.detalhe-modal p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.detalhe-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detalhe-modal input {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.detalhe-botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.botao-cinza {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao-azul {
+  background-color: #66c4ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.botao-cinza:hover {
+  background-color: #d5d5d5;
+}
+
+.botao-azul:hover {
+  background-color: #4cb6ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 480px) {
+  .detalhe-modal {
+    padding: 20px;
+  }
+
+  .detalhe-botoes {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+.detalhe-modal {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 95vh; /* limite vertical */
+  overflow-y: auto;  /* rolagem interna */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.detalhe-modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1c1c1c;
+}
+
+.detalhe-info p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.detalhe-botoes {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.botao-cinza {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao-cinza:hover {
+  background-color: #d5d5d5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+  .detalhe-modal {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .detalhe-info p {
+    font-size: 14px;
+  }
+
+  .botao-cinza {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+
+/* Paciente Tabela - Tabela totalmente responsiva */
+
+/* Contêiner da tabela */
+.tabela-container {
+  width: 100%;
+  overflow-x: auto; /* Mantém o scroll apenas quando realmente necessário */
+  margin-top: 20px;
+}
+
+/* Tabela principal */
+.tabela-pacientes {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  table-layout: auto; /* permite o ajuste dinâmico das colunas */
+}
+
+/* Cabeçalho e células */
+.tabela-pacientes th,
+.tabela-pacientes td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  white-space: normal; /* permite quebra de texto */
+  word-break: break-word; /* quebra strings longas como e-mails */
+}
+
+/* Cabeçalho */
+.tabela-pacientes th {
+  background-color: #eaf6ff;
+  font-weight: 600;
+}
+
+/* Linhas pares com fundo alternado */
+.tabela-pacientes tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Ações com ícones */
+.acoes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* permite reorganizar em telas menores */
+}
+
+.btn-editar, .btn-excluir {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-editar {
+  color: #2a73d9;
+}
+
+.btn-excluir {
+  color: #d9534f;
+}
+
+.linha-destacada {
+  background-color: #fff5c1 !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .tabela-pacientes th,
+  .tabela-pacientes td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .acoes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/*Componente COnsultas*/
+.app-consultas {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.titulo-etapa {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/*Selecionar Serviço.jsx*/
+
+.consulta-wrapper {
+  padding: px;
+  display: flex;
+  justify-content: center;
+}
+
+.consulta-card {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  padding: 20px;
+}
+
+.consulta-header {
+  background-color: #a3d4ff;
+  text-align: center;
+  font-weight: bold;
+  width: 50%;
+  margin: auto;
+  padding: 15px;
+  border-radius: 3px;
+  font-size: 16px;
+  color: white;
+}
+
+.consulta-conteudo {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.consulta-formulario {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.campo label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+  color: #444;
+}
+
+.campo-com-icone {
+  position: relative;
+}
+
+.campo-com-icone select {
+  width: 100%;
+  padding: 10px;
+  padding-right: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.plus-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4ac0f0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.campo select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.consulta-imagem {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+  padding: 10px;
+}
+
+.consulta-imagem img {
+  width: 140px;
+  opacity: 0.8;
+}
+
+.texto-info {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.consulta-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-siguiente {
+  padding: 10px 30px;
+  background-color: #ccc;
+  color: #666;
+  border: none;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+.btn-siguiente:enabled {
+  background-color: #4ac0f0;
+  color: white;
+  cursor: pointer;
+}
+
+.resumo-box {
+  background-color: #e8fff1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: left;
+  max-width: 300px;
+  margin: auto;
+}
+
+.resumo-box h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.resumo-servico {
+  background: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  border: 1px solid #ddd;
+}
+
+.resumo-total {
+  font-size: 14px;
+  color: #333;
+}
+
+/*DAta e Hora componente*/
+
+.datahora-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.datahora-card {
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 5px;
+}
+
+.datahora-header {
+  background-color: #a3d4ff;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.datahora-formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.datahora-formulario input[type="date"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  text-align: center;
+}
+
+.horarios-disponiveis {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px;
+  justify-content: center;
+}
+
+.horarios-disponiveis button {
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.horarios-disponiveis button:hover {
+  background-color: #e8f6ff;
+}
+
+.horarios-disponiveis .selecionado {
+  background-color: #a3d4ff;
+  color: white;
+  font-weight: bold;
+  border-color: #7ec3f5;
+}
+
+.datahora-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.datahora-footer .btn-anterior {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  background-color: #eee;
+  color: #555;
+}
+
+.datahora-footer .btn-siguiente {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4ac0f0;
+  color: white;
+  cursor: pointer;
+}
+
+.datahora-footer .btn-siguiente:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/*Dado paciente*/
+
+.campo-busca {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.campo-busca input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.campo-busca .btn-busca {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #4ac0f0;
+}
+
+.resumo-paciente {
+  margin-top: 20px;
+  background: #e6f8ff;
+  padding: 15px 20px;
+  border-radius: 6px;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  font-size: 14px;
+  color: #333;
+}
+
+.erro {
+  color: red;
+  margin-top: 10px;
+}
+
+/*Confirmacao*/
+
+.resumo-dados {
+  background-color: #e5fff0;
+  padding: 25px;
+  margin: 30px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-confirmacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+  margin: 20px 0;
+  background: #eef7ff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.grid-confirmacao .item label {
+  font-weight: 600;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.grid-confirmacao .item div {
+  background: #f2faff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: #333;
+}
+
+.preco-container {
+  background: #dbffee;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.preco-container .titulo {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.preco-container .valor {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+/*Botoes*/
+/* Botão azul */
+.btn-siguiente {
+  background-color: #3ac3f0;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-siguiente:hover {
+  background-color: #29a9d5;
+}
+
+.btn-siguiente:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Botão cinza (Anterior) */
+.btn-anterior {
+  background-color: #eee;
+  color: #444;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-anterior:hover {
+  background-color: #ddd;
+}
+
+/*Confirmaçao criaçao*/
+
+.check-circle {
+  background-color: #88ffbf;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.check {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.consulta-card h2 {
+  font-size: 18px;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mensagem-sucesso {
+  background-color: #d1fae5;
+  color: #256c48;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
