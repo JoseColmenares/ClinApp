@@ -1,0 +1,237 @@
+
+.servico1{
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 150px 1fr;
+}
+
+
+.servico1 div{
+    background-color: EDEDED;
+}
+
+.servico1 .item1{
+    background-color: EDEDED;
+    grid-column: 1/3;
+    width: 100%;
+    height: 100%;
+
+    input{
+        width: 600px;
+        height: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+        border: 0px;
+        padding-left: 20px;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    .l1{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+}
+
+
+.servico1 .item2{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ima{
+        position: absolute;
+    }
+}
+
+.servico1 .item3{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+
+    display: flex;
+    flex-direction: column;
+
+    .l1{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .l2{
+        font-size: 10px;
+    }
+
+    .im{
+        width: 180px;
+        height: 200px;
+        background-color: cornsilk;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .bot{
+        margin: 10px;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #3DBDEC;
+        color: white;
+        border: 0px;
+    }
+}
+
+
+.servicoAdicionar{
+  background-color: #3DBDEC;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+
+  .fo{
+    background-color: #3DBDEC;
+    width: 800px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    
+    
+
+
+     
+
+
+    .di1{
+        grid-column: 1/3;
+        background-color: brown;
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        justify-content: center;
+        align-items: center;
+        .le1{
+            font-weight: bold;
+            width: 400px;
+            height: 50px;
+            font-size: 30px;
+            background-color: #3DBDEC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .le2{
+            font-weight: bold;
+        }
+        
+    }
+
+    .di2{
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        padding-top: 30px;
+        background-color: #FFFFFF;
+        grid-column: 3/1;
+        justify-content: center;
+        align-items: center;
+
+        .l2{
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .in2{
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            border: 3px solid #F1F1F1;  
+            margin-top: 10px;          
+        }
+
+        .a2{
+           width: 300px; 
+           border-radius: 5px;
+           border: 3px solid #F1F1F1;  
+           margin-top: 10px; 
+           height: 150px;
+        }
+    }
+
+    .di3{
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        padding-top: 30px;
+        background-color: #FFFFFF;
+
+        .dil{
+            height: 40px;
+            border-radius: 5px;
+            border: 3px solid #F1F1F1;
+        }
+
+        .leb{
+            margin-top: 15px;
+        }
+    }
+    .di4{
+        background-color: #FFFFFF;
+        grid-column: 3/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .botoes{
+               .bota{
+                width: 200px;
+                height: 40px;
+                border-radius: 10px;
+                margin: 15px;
+                background-color: #EBEBEB;
+                border: 0px;
+                font-weight: bold;
+               }
+
+                .bota2{
+                width: 200px;
+                height: 40px;
+                border-radius: 10px;
+                margin: 15px;
+                background-color: #3DBDEC;
+                color: white;
+                border: 0px;
+                font-weight: bold;
+               }
+        }
+    }
+  }
+}
+
+

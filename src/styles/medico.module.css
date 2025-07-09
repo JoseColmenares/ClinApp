@@ -1,0 +1,297 @@
+.medico1{
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 150px 1fr;
+}
+
+
+.medico1 div{
+    background-color: EDEDED;
+}
+
+.medico1 .item1{
+    background-color: EDEDED;
+    grid-column: 1/3;
+    width: 100%;
+    height: 100%;
+
+    input{
+        width: 600px;
+        height: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+        border: 0px;
+        padding-left: 20px;
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    .l1{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+}
+
+
+.medico1 .item2{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-height: 100%;         /* Limita altura ao container pai */
+    overflow-y: auto;
+
+    .ima{
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        z-index: 1;
+    }
+
+
+}
+
+
+.medico1 .item3{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+
+    display: flex;
+    flex-direction: column;
+
+    .l1{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .l2{
+        font-size: 10px;
+    }
+
+    .im{
+        width: 180px;
+        height: 200px;
+        background-color: cornsilk;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .bot{
+        margin: 10px;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #3DBDEC;
+        color: white;
+        border: 0px;
+    }
+}
+
+
+.medicoAdicionar{
+  background-color: #3DBDEC;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* escurece o fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+
+  .fo{
+    background-color: #3DBDEC;
+    width: 800px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    
+
+
+
+    .di1{
+        grid-column: 1/3;
+        background-color: brown;
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFF;
+        justify-content: center;
+        align-items: center;
+
+       
+        
+        .le1{
+            font-weight: bold;
+            width: 400px;
+            height: 50px;
+            font-size: 30px;
+            background-color: #3DBDEC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .le2{
+            font-weight: bold;
+        }
+        
+    }
+
+    .di2{
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        padding-top: 30px;
+        background-color: #FFFFFF;
+
+        .dil{
+            height: 40px;
+            border-radius: 5px;
+            border: 3px solid #F1F1F1;
+        }
+
+        .leb{
+            margin-top: 15px;
+        }
+    }
+
+    .di3{
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        padding-top: 30px;
+        background-color: #FFFFFF;
+
+        .dil{
+            height: 40px;
+            border-radius: 5px;
+            border: 3px solid #F1F1F1;
+        }
+
+        .leb{
+            margin-top: 15px;
+        }
+    }
+    .di4{
+        background-color: #FFFFFF;
+        grid-column: 3/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .botoes{
+               .bota{
+                width: 200px;
+                height: 40px;
+                border-radius: 10px;
+                margin: 15px;
+                background-color: #EBEBEB;
+                border: 0px;
+                font-weight: bold;
+               }
+
+                .bota2{
+                width: 200px;
+                height: 40px;
+                border-radius: 10px;
+                margin: 15px;
+                background-color: #3DBDEC;
+                color: white;
+                border: 0px;
+                font-weight: bold;
+               }
+        }
+    }
+  }
+}
+
+
+.listaMedicos{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 5px solid black;
+    z-index: 2;
+    background-color: #F1F1F1;
+    width: 450px;
+    text-decoration: none;
+    list-style: none;
+
+    .lis{
+        border: 5px solid red;
+        width: 450px;
+    }
+}
+
+
+.tabelaMedico{
+    background-color: #EAF6FF;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    border-collapse: collapse;
+    .tabelaData{
+        padding: 10px;
+        
+    }
+
+    .tabelaR:nth-child(even) {
+    background-color: #EDEDED;
+    }
+    .tabelaR:nth-child(odd) {
+    background-color: #F9F9F9;
+  }
+
+    .tabelaH{
+        background-color: #EAF6FF;
+    }
+}
+
+
+.icone_editar {
+  color: blue;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icone_editar:hover {
+  transform: scale(1.2);
+}
+
+.icone_excluir {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.icone_excluir:hover {
+  opacity: 0.7;
+}
